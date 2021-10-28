@@ -3,12 +3,12 @@ void setup()
 {
   background(0);
   size(500, 500);
-  starfield = new Particle[300];
-  for (int i = 0; i < 5; i++)
+  starfield = new Particle[500];
+  for (int i = 0; i < 25; i++)
   {
     starfield[i] = new OddballParticle();
   }
-  for (int i = 5; i < starfield.length; i++)
+  for (int i = 25; i < starfield.length; i++)
   {
     starfield[i] = new Particle();
   }
@@ -34,7 +34,7 @@ class Particle
     Speed = (int)(Math.random() * 8 + 1);
     Angle = (int)(Math.random() * 360);
     Color = (int)(Math.random() * 100+156);
-    Opacity = (int)(Math.random() * 80 + 90);
+    Opacity = (int)(Math.random() * 95 + 95);
     size = (float)(Math.random()* 4 + 5);
   }
   void move() 
@@ -57,6 +57,7 @@ class Particle
   {
     size = size + 0.275;
     fill(Color, Opacity);
+    noStroke();
     ellipse((float)X, (float) Y, size, size);
   }
 }
@@ -66,7 +67,7 @@ class OddballParticle extends Particle//inherits from Particle
   int x1, y1, color1, color2, color3, opacity1;
   OddballParticle()
   {
-    x1 = y1 = 200;
+    x1 = y1 = 250;
     color1 = ((int)(Math.random() * 255));
     color2 = ((int)(Math.random() * 255));
     color3 = ((int)(Math.random() * 255));
@@ -74,12 +75,17 @@ class OddballParticle extends Particle//inherits from Particle
   }
   void move() 
   {
-    x1 = x1 + (int)(Math.random() * 10 - 5);
-    y1 = y1 + (int)(Math.random() * 10 - 5);
+    x1 = x1 + (int)(Math.random() * 15 - 7.5);
+    y1 = y1 + (int)(Math.random() * 15 - 7.5);
+    if (x1 < -25 || x1 > 525 || y1 < -25 || y1 > 525)
+    {
+      x1 = 250;
+      y1 = 250;
+    }
   }
   void show()
   { 
     fill(color1, color2, color3);
-    ellipse(x1, y1, 50, 50);
+    ellipse(x1, y1, 25, 25);
   }
 }
