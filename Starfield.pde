@@ -2,7 +2,7 @@ Particle[] starfield;
 void setup()
 {
   background(0);
-  size(500, 500);
+  size(700, 700);
   starfield = new Particle[500];
   for (int i = 0; i < 25; i++)
   {
@@ -29,23 +29,23 @@ class Particle
   float size;
   Particle()
   {
-    X = (int)(Math.random() * 500);
-    Y = (int)(Math.random() * 500);
+    X = (int)(Math.random() * 700);
+    Y = (int)(Math.random() * 700);
     Speed = (int)(Math.random() * 8 + 1);
     Angle = (int)(Math.random() * 360);
     Color = (int)(Math.random() * 100+156);
     Opacity = (int)(Math.random() * 95 + 95);
-    size = (float)(Math.random()* 4 + 5);
+    size = (float)(Math.random()* 7 + 5);
   }
   void move() 
   {
     X = X + (Math.cos(Angle) * Speed);
     Y = Y + (Math.sin(Angle) * Speed);
-    if (X < 0 || X > 500 || Y < 0 || Y > 500)
+    if (X < 0 || X > 700 || Y < 0 || Y > 700)
     {
-      X = (int)(Math.random() * 20) + 240;
-      Y = (int)(Math.random() * 20) + 240;
-      size = (int)(Math.random()*5+3);
+      X = (int)(Math.random() * 20) + 340;
+      Y = (int)(Math.random() * 20) + 340;
+      size = (int)(Math.random()*6+3);
     }
     if (size > 20)
     {
@@ -67,7 +67,7 @@ class OddballParticle extends Particle//inherits from Particle
   int x1, y1, color1, color2, color3, opacity1;
   OddballParticle()
   {
-    x1 = y1 = 250;
+    x1 = y1 = 350;
     color1 = ((int)(Math.random() * 255));
     color2 = ((int)(Math.random() * 255));
     color3 = ((int)(Math.random() * 255));
@@ -79,8 +79,8 @@ class OddballParticle extends Particle//inherits from Particle
     y1 = y1 + (int)(Math.random() * 15 - 7.5);
     if (x1 < -25 || x1 > 525 || y1 < -25 || y1 > 525)
     {
-      x1 = 250;
-      y1 = 250;
+      x1 = 350;
+      y1 = 350;
     }
   }
   void show()
